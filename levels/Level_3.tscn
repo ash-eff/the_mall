@@ -1,23 +1,51 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://game_control/Level_Exit.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sounds/elevator_ping_02-40404.mp3" type="AudioStream" id=2]
 [ext_resource path="res://levels/Level.gd" type="Script" id=3]
 [ext_resource path="res://game_control/level_label.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sounds/teleport-90324.mp3" type="AudioStream" id=5]
+[ext_resource path="res://game_control/Level_Enter.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "level_title"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("level_label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="Level_3" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="level_label" parent="." instance=ExtResource( 4 )]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 480.0
+margin_bottom = 270.0
+align = 1
+valign = 1
 
 [node name="Level_Exit" parent="." instance=ExtResource( 1 )]
 position = Vector2( 419, 117 )
+
+[node name="Level_Enter" parent="." instance=ExtResource( 6 )]
+position = Vector2( 37, 86 )
 
 [node name="Exit_Level" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 
 [node name="Enter_Level" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/level_title = SubResource( 1 )
 
 [connection signal="level_exited" from="Level_Exit" to="." method="_on_Level_Exit_level_exited"]

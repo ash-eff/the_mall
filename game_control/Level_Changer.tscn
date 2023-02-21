@@ -4,7 +4,7 @@
 [ext_resource path="res://levels/Level_1.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Animation" id=1]
-resource_name = "scene_fade_in"
+resource_name = "level_close"
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Overlay:color")
 tracks/0/interp = 1
@@ -19,7 +19,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-resource_name = "scene_fade_out"
+resource_name = "level_open"
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Overlay:color")
 tracks/0/interp = 1
@@ -46,8 +46,8 @@ mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/scene_fade_in = SubResource( 1 )
-anims/scene_fade_out = SubResource( 2 )
+anims/level_close = SubResource( 1 )
+anims/level_open = SubResource( 2 )
 
 [node name="Level_1" parent="." instance=ExtResource( 2 )]
 

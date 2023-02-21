@@ -2,3 +2,12 @@ drop down through endless floors of the mall
 	- collect vhs movies to get stronger
 	- defeat the enemies on each floor
 	- fight a boss
+
+level transistion
+	Xplayer enters level exit, triggers level change animation
+	Xplayer is unable to move
+	Xlevel transistions, cleaning up old level, loading new
+	Xplayer is moved to level entry point
+	Xlevel entry animation plays
+	Xtext displays on screen to notify play of floor number
+	Xplayer can move
